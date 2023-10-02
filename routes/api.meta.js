@@ -6,7 +6,6 @@ const readline = require("readline").createInterface({
 });
 
 const url = "https://api.metaphor.systems/search";
-const queryData = "oakland athletics";
 
 router.post("/data/:input", async (req, res, next) => {
   try {
