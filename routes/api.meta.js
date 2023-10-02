@@ -7,9 +7,11 @@ const readline = require("readline").createInterface({
 
 const url = "https://api.metaphor.systems/search";
 
-router.post("/data/:input", async (req, res, next) => {
+router.post("/data/:input/:num", async (req, res, next) => {
   try {
     const { input } = req.params;
+    let { num } = req.params;
+    num = Number(num)
     const data = await fetch(url, {
       method: "POST",
       headers: {
@@ -18,7 +20,7 @@ router.post("/data/:input", async (req, res, next) => {
         "x-api-key": process.env.API_KEY,
       },
       body: JSON.stringify({
-        numResults: 5,
+        numResults: num,
         query: `${input}`,
         useAutoprompt: false,
       }),
