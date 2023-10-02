@@ -2,6 +2,7 @@ const fetch = require("node-fetch");
 const router = require("express").Router();
 
 const url = "https://api.metaphor.systems/search";
+const searchString = "Dallas stars hockey"
 
 const options = {
   method: "POST",
@@ -10,7 +11,7 @@ const options = {
     "content-type": "application/json",
     "x-api-key": process.env.API_KEY,
   },
-  body: JSON.stringify({ numResults: 5, query: "Sacramento kings", useAutoprompt: false }),
+  body: JSON.stringify({ numResults: 5, query: `${searchString}`, useAutoprompt: false }),
 };
 
 router.post("/data", async (req, res, next) => {
