@@ -11,7 +11,10 @@ router.post("/data/:input/:num", async (req, res, next) => {
   try {
     const { input } = req.params;
     let { num } = req.params;
+
     num = Number(num)
+    num > 10 ? num = 10 : num;
+    
     const data = await fetch(url, {
       method: "POST",
       headers: {
