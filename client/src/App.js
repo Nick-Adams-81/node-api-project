@@ -3,6 +3,21 @@ import { useState, useEffect, useRef } from "react";
 function App() {
   const [input, setInput] = useState("");
 
+  const handleClick = (input) => {
+    useEffect(() => {
+    fetch(`/data/${input}` , {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      }
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error))
+  }, [])
+  }
+  
+
   return (
     <div className="App" style={{ backgroundColor: "grey" }}>
       <h1 style={{ marginLeft: "600px", marginTop: "100px", fontSize: "50px" }}>
@@ -23,7 +38,7 @@ function App() {
           onChange={(e) => setInput(e.target.value)}
         />
         <div>Youre input is {input}</div>
-        <button>Find info!</button>
+        <button onClick={handleClick(input)}>Find info!</button>
       </div>
     </div>
   );
