@@ -13,7 +13,7 @@ app.get("/", async (req, res, next) => {
   res.send({ message: "Awesome it does work🐻" });
 });
 
-app.use("/api", require("./routes/api.route"));
+
 app.use("/", require("./routes/api.meta"));
 
 app.use((req, res, next) => {
