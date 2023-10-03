@@ -3,20 +3,17 @@ import { useState, useEffect, useRef } from "react";
 function App() {
   const [input, setInput] = useState("");
 
-  const handleClick = (input) => {
-    useEffect(() => {
-    fetch(`/data/${input}` , {
+  useEffect(() => {
+    fetch(`http://localhost:5000/data/${input}/3`, {
       method: "POST",
       headers: {
-        "content-type": "application/json"
-      }
+        "content-type": "application/json",
+      },
     })
-    .then(res => res.json())
-    .then(data => console.log(data))
-    .catch(error => console.log(error))
-  }, [])
-  }
-  
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
+  }, [input])
 
   return (
     <div className="App" style={{ backgroundColor: "grey" }}>
@@ -38,7 +35,7 @@ function App() {
           onChange={(e) => setInput(e.target.value)}
         />
         <div>Youre input is {input}</div>
-        <button onClick={handleClick(input)}>Find info!</button>
+        <button>Find info!</button>
       </div>
     </div>
   );
