@@ -22,11 +22,10 @@ router.post("/data/:input/:num?", async (req, res, next) => {
     const { input } = req.params;
     let { num } = req.params;
     num = Number(num);
-    num > 10 ? (num = 10) : num;
+    num > 5 ? (num = 5) : num;
     const data = await fetch(url, options("POST", input, num));
     const response = await data.json();
     res.json(response);
-    console.log(response);
   } catch (err) {
     next(err);
   }
