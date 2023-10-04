@@ -1,5 +1,5 @@
 # Spoofle
-## This is a spoof of google, you can search for anythiong on the web just by typiung in what you want to find. 
+## This is a spoof of google, you can search for anything on the web just by typing in what you want to find. 
 
 ## System requirements
 - [Latest LTS version of Node]("https://nodejs.org/en/download")
@@ -19,12 +19,12 @@ npm start
 ```
 
 ## Adding your own Metaphor API KEY to access the data
-There are Two ways to add your API KEY. The first method is as follows.
+There are two ways to add your API KEY. The first method is as follows.
  Inside the server folder, create a .env file, then inside of your newly created .env file, add the following variable:
 ```
 API_KEY={your_api_key}
 ```
-You need to replace the values to the right of the equals sign with the string value of your API KEY.
+You need to replace the values inside the braces, and remove the braces, with the string value of your API KEY.
 
 The second way to add your API KEY would be to directly add it inside the options function, inside the headers under "x-api-key" which is in the api.meta.js file, which is inside the server folder, this is the file path:
 ```
