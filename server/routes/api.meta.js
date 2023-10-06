@@ -33,7 +33,8 @@ router.post("/data/:input/:num?", async (req, res, next) => {
 router.get("/data/:id", async (req, res, next) => {
   const { id } = req.params
   try {
-    const data = await fetch(`https://api.metaphor.systems/contents/${id}`, {
+    const data = await fetch(`https://api.metaphor.systems/contents?ids=%22${id}`, {
+      method: "GET",
       headers: {
         accept: "application/json",
         "x-api-key": process.env.API_KEY,
