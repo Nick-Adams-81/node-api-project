@@ -3,7 +3,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Nav from "react-bootstrap/Nav";
-import InputGroup from "react-bootstrap/InputGroup";
+import Button from 'react-bootstrap/Button';
 
 function App() {
   const [input, setInput] = useState("");
@@ -99,6 +99,8 @@ function App() {
                       <Nav.Link href={url}>link to story</Nav.Link>
                     </Nav.Item>
                     <Card.Text>By: {author}</Card.Text>
+                    {/* // TODO : create button that gets data based on id */}
+                    <Button variant="primary" onClick={() => console.log(id)}>Get Info</Button>
                   </Card.Body>
                 </Card>
               );
