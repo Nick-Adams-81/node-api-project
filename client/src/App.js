@@ -10,10 +10,7 @@ function App() {
   const [data, setData] = useState([]);
 
   const dataArray = data.results;
-  if (dataArray !== undefined) {
-    console.log(dataArray);
-  }
-
+ 
   useEffect(() => {
     fetch(`http://localhost:5000/data/${input}/5`, {
       method: "POST",
