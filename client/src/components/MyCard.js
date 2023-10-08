@@ -6,6 +6,14 @@ const MyCard = (id, title, url, author) => {
   if (author === null) {
     author = "unknown";
   }
+
+  const getDataById = (id) => {
+    fetch(`/data/"${id}"`)
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
+  };
+  
   return (
     <>
       <Card
