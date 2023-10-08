@@ -3,14 +3,14 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Nav from "react-bootstrap/Nav";
-import Button from 'react-bootstrap/Button';
+import Button from "react-bootstrap/Button";
 
 function App() {
   const [input, setInput] = useState("");
   const [data, setData] = useState([]);
 
   const dataArray = data.results;
- 
+
   useEffect(() => {
     fetch(`http://localhost:5000/data/${input}/5`, {
       method: "POST",
@@ -22,6 +22,13 @@ function App() {
       .then((data) => setData(data))
       .catch((error) => console.log(error));
   }, [input]);
+
+  const getDataById = (id) => {
+    fetch(`/data/${id}`)
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
+  };
 
   if (dataArray === undefined) {
     return (
@@ -79,6 +86,10 @@ function App() {
         <Row>
           <Col xs={12} sm={12} md={6} lg={4}>
             {dataArray.map(({ id, title, url, author }) => {
+              if (author === null) {
+                author = "unknown";
+              }
+              //id = String(id);
               return (
                 <Card
                   style={{
@@ -97,7 +108,9 @@ function App() {
                     </Nav.Item>
                     <Card.Text>By: {author}</Card.Text>
                     {/* // TODO : create button that gets data based on id */}
-                    <Button variant="primary" onClick={() => console.log(id)}>Get Info</Button>
+                    <Button variant="primary" onClick={() => console.log(id)}>
+                      Get Info
+                    </Button>
                   </Card.Body>
                 </Card>
               );
