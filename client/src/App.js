@@ -24,7 +24,7 @@ function App() {
   }, [input]);
 
   const getDataById = (id) => {
-    fetch(`/data/${id}`)
+    fetch(`/data/"${id}"`)
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((error) => console.log(error));
@@ -89,7 +89,6 @@ function App() {
               if (author === null) {
                 author = "unknown";
               }
-              //id = String(id);
               return (
                 <Card
                   style={{
@@ -108,7 +107,7 @@ function App() {
                     </Nav.Item>
                     <Card.Text>By: {author}</Card.Text>
                     {/* // TODO : create button that gets data based on id */}
-                    <Button variant="primary" onClick={() => console.log(id)}>
+                    <Button variant="primary" onClick={() => getDataById(id)}>
                       Get Info
                     </Button>
                   </Card.Body>
