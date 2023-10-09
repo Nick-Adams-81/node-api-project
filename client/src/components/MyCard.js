@@ -34,7 +34,7 @@ const MyCard = (id, title, url, author) => {
           </Nav.Item>
           <Card.Text>By: {author}</Card.Text>
           {/* // TODO : create button that gets data based on id */}
-          <Button variant="primary" onClick={() => console.log(id)}>
+          <Button variant="primary" onClick={() => getDataById(id)}>
             Get Info
           </Button>
         </Card.Body>
