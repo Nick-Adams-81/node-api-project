@@ -7,13 +7,14 @@ const MyCard = (id, title, url, author) => {
     author = "unknown";
   }
 
+  // TODO: figure out why im getting an error <DOCTYPE html> is not valid json when calling this method
   const getDataById = (id) => {
-    fetch(`/data/"${id}"`)
+    fetch(`/data/${id}`)
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((error) => console.log(error));
   };
-  
+
   return (
     <>
       <Card
