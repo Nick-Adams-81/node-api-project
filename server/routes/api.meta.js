@@ -1,8 +1,8 @@
 const fetch = require("node-fetch");
 const router = require("express").Router();
 
-const postUrl = "https://api.metaphor.systems/search";
-const getUrl = (id) => `https://api.metaphor.systems/contents?ids=%22${id}`;
+const postURL = "https://api.metaphor.systems/search";
+const getURL = (id) => `https://api.metaphor.systems/contents?ids=%22${id}`;
 
 const postOptions = (HTTPMethod, input, num) => ({
   method: HTTPMethod,
@@ -31,7 +31,7 @@ router.post("/data/:input/:num?", async (req, res, next) => {
     let { input, num } = req.params;
     num = Number(num);
     num > 5 ? (num = 5) : num;
-    const data = await fetch(postUrl, postOptions("POST", input, num));
+    const data = await fetch(postURL, postOptions("POST", input, num));
     const response = await data.json();
     res.json(response);
   } catch (err) {
@@ -42,7 +42,7 @@ router.post("/data/:input/:num?", async (req, res, next) => {
 router.get("/data/:id", async (req, res, next) => {
   const { id } = req.params;
   try {
-    const data = await fetch(getUrl(id), getOptions("GET"));
+    const data = await fetch(getURL(id), getOptions("GET"));
     const response = await data.json();
     res.json(response);
   } catch (error) {
