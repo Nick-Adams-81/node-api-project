@@ -9,9 +9,9 @@ const MyCard = (id, title, url, author) => {
 
   // TODO: figure out why im getting an error <DOCTYPE html> is not valid json when calling this method
   const getDataById = (id) => {
-    fetch(`/data/${id}`)
+    fetch(`http://localhost:5000/data/'${id}'`)
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => console.log(data.contents[0]))
       .catch((error) => console.log(error));
   };
 
