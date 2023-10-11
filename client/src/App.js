@@ -9,8 +9,8 @@ function App() {
   const [data, setData] = useState([]);
   const [onePieceOfData, setOnePieceOfData] = useState([]);
 
+  // TODO: use one piece of data and create modal pop up with data in it
   const dataArray = data.results;
-  console.log(onePieceOfData)
 
   useEffect(() => {
     fetch(`http://localhost:5000/data/${input}/5`, {
@@ -37,7 +37,7 @@ function App() {
         <MyInput input={input} setInput={setInput} />
       </div>
     );
-  } else {
+  } else if(dataArray){
     return (
       <div className="App">
         <MyInput input={input} setInput={setInput} />

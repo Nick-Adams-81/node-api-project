@@ -2,18 +2,10 @@ import Card from "react-bootstrap/Card";
 import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button";
 
-const MyCard = (id, title, url, author) => {
+const MyCard = (id, title, url, author, getDataById) => {
   if (author === null) {
     author = "unknown";
   }
-
-  // TODO: figure out why im getting an error <DOCTYPE html> is not valid json when calling this method
-  const getDataById = (id) => {
-    fetch(`http://localhost:5000/data/'${id}'`)
-      .then((res) => res.json())
-      .then((data) => console.log(data.contents[0]))
-      .catch((error) => console.log(error));
-  };
 
   return (
     <>
